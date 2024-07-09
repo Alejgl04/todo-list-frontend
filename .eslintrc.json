@@ -76,7 +76,9 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
+
       }
     }
   ]

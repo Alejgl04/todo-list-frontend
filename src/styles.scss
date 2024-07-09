@@ -33,3 +33,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
   width: 100%;
 }
+
+.bg-primary-color {
+  background-color: #ff6600;
+}
+
+.cursor-click {
+  cursor: pointer;
+}

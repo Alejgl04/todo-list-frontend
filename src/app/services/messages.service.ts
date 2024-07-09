@@ -10,4 +10,7 @@ export class MessagesService {
     signInMessages(message: string) {
         this.snackBar.open(message, "Accept");
     }
+    todoMessages(message: string) {
+        this.snackBar.open(message, "Accept");
+    }
 }

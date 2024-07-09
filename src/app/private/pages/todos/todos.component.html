@@ -1,1 +1,37 @@
-<p>todos works!</p>
+<div>
+  <app-navbar></app-navbar>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card-body">
+          <form autocomplete="off" [formGroup]="todoForm" (ngSubmit)="onSubmit( )">
+              <mat-form-field appearance="fill" style="width: 100%;">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Test title.." formControlName="title">
+                <mat-error *ngIf="dataControls['title'].hasError('required')">
+                  This field is required
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill" style="width: 100%;">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Some Text.." formControlName="description">
+                <mat-error *ngIf="dataControls['description'].hasError('required')">
+                  This field is required
+                </mat-error>
+              </mat-form-field>
+            <hr>
+            <mat-progress-bar mode="indeterminate" *ngIf="isLoadingForm"></mat-progress-bar>
+            <button mat-raised-button color="primary" class="text-white">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class="col mt-1 p-1">
+        <div>
+          <app-todo-table
+            [todos]="todosSource">
+          </app-todo-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

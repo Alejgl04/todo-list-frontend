@@ -67,14 +67,6 @@ export class AuthService {
         this.storeTokens(tokens);
     }
 
-    private getRefreshToken() {
-        return localStorage.getItem(this.REFRESH_TOKEN);
-    }
-
-    private storeJwtToken(jwt: string) {
-        localStorage.setItem(this.JWT_TOKEN, jwt);
-    }
-
     private storeTokens(tokens: any) {
         localStorage.setItem(this.JWT_TOKEN, tokens);
         localStorage.setItem(this.REFRESH_TOKEN, tokens);
