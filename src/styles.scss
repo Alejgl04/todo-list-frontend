@@ -1,0 +1,35 @@
+@import "assets/styles/theme";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Inter, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container-signIn {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.content-center {
+  justify-content: center;
+}
+
+.main-panel {
+  position: relative;
+  float: right;
+  transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
+  width: 100%;
+}

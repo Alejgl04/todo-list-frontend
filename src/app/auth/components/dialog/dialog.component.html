@@ -1,0 +1,26 @@
+<!-- <div>
+
+</div> -->
+
+<h1 mat-dialog-title>Register Form</h1>
+<div mat-dialog-content>You want to create this user with email: {{data.user.email}}.</div>
+<div class="card-body p-3">
+  <form autocomplete="off" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" formControlName="email">
+      <mat-error *ngIf="dataControls['email'].hasError('required')">
+        This field is required
+      </mat-error>
+      <mat-error *ngIf="dataControls['email'].hasError('email')">
+        Enter a valid email
+       </mat-error>
+    </mat-form-field>
+    <hr>
+    <mat-progress-bar mode="indeterminate" *ngIf=""></mat-progress-bar>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" class="text-white">Confirm</button>
+      <button mat-button (click)="onNoClick()" color="primary" >Close</button>
+    </div>
+  </form>
+</div>
