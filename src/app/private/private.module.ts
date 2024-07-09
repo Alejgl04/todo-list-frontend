@@ -8,6 +8,7 @@ import { TodoTableComponent } from "./components/todo-table/todo-table.component
 import { TodosComponent } from "./pages/todos/todos.component";
 import { PrivateComponent } from "./private.component";
 import { PrivateRoutingModule } from "./private-routing.module";
+import { EditTodoDialogComponent } from './components/edit-todo-dialog/edit-todo-dialog.component';
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { PrivateRoutingModule } from "./private-routing.module";
         PrivateComponent,
         NavbarComponent,
         TodoTableComponent,
+        EditTodoDialogComponent,
     ],
     imports: [
         CommonModule,

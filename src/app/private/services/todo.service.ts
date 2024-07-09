@@ -4,7 +4,7 @@ import { catchError, map, throwError } from "rxjs";
 
 import { environment } from "../../../environments/environment";
 import { AuthService } from "../../auth/services/auth.service";
-import { SaveTodo, Todos } from "../interfaces/todo.interfaces";
+import { SaveTodo, Todos, TodosByID } from "../interfaces/todo.interfaces";
 
 @Injectable({
     providedIn: "root"
@@ -23,6 +23,10 @@ export class TodoServices {
         return this.http.get<Todos[]>(`${this.apiUrl}/task`, { headers: this.headers });
     }
 
+    getTodoById(id: string) {
+        return this.http.get<TodosByID>(`${this.apiUrl}/task/${id}`, { headers: this.headers });
+    }
+
     createTodo(title: string, description: string) {
         return this.http.post<SaveTodo>(`${this.apiUrl}/task`, { title, description }, { headers: this.headers })
             .pipe(
@@ -35,6 +39,11 @@ export class TodoServices {
         const idTodo = { ...data.status };
         const status = "COMPLETED";
         return this.http.patch<SaveTodo>(`${this.apiUrl}/task/${idTodo[0]}`, { status }, { headers: this.headers });
+    }
+
+    updateTodo(title: string, description: string, id: string) {
+        const url = `${this.apiUrl}/task/${id}`;
+        return this.http.patch<SaveTodo>(url, { title, description }, { headers: this.headers });
     }
 
     deleteTodo(idTodo: string) {

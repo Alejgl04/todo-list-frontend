@@ -17,3 +17,8 @@ export interface Todos {
     title: string;
     status: string;
 }
+
+export interface TodosByID {
+    todos: Todos;
+    id: string;
+}

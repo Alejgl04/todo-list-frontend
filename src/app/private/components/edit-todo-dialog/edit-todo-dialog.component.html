@@ -1,0 +1,26 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col">
+      <div class="card-body">
+        <form autocomplete="off" [formGroup]="todoEditForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" style="width: 100%;">
+              <mat-label>Title</mat-label>
+              <input matInput placeholder="Test title.." formControlName="title">
+              <mat-error *ngIf="dataControls['title'].hasError('required')">
+                This field is required
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" style="width: 100%;">
+              <mat-label>Description</mat-label>
+              <input matInput placeholder="Some Text.." formControlName="description">
+              <mat-error *ngIf="dataControls['description'].hasError('required')">
+                This field is required
+              </mat-error>
+            </mat-form-field>
+          <hr>
+          <button mat-raised-button color="primary" class="text-white">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

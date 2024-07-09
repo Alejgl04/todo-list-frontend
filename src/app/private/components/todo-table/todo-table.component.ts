@@ -2,11 +2,13 @@ import {
     Component, inject, Input
 } from "@angular/core";
 import { FormArray, FormBuilder, FormControl } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
 import { MatTableDataSource } from "@angular/material/table";
 import { MessagesService } from "src/app/services/messages.service";
 
 import { Todos } from "../../interfaces/todo.interfaces";
 import { TodoServices } from "../../services/todo.service";
+import { EditTodoDialogComponent } from "../edit-todo-dialog/edit-todo-dialog.component";
 
 @Component({
     selector: "app-todo-table",
@@ -20,6 +22,8 @@ export class TodoTableComponent {
     private readonly formBuilder = inject(FormBuilder);
     private todoServices = inject(TodoServices);
     private messageService = inject(MessagesService);
+
+    public dialog = inject(MatDialog);
     public checkForm = this.formBuilder.group({
         status: this.formBuilder.array([]),
     });
@@ -61,7 +65,17 @@ export class TodoTableComponent {
         });
     }
 
-    editTodo(id: string ) {
-
+    editTodo(idTodo: string) {
+        this.todoServices.getTodoById(idTodo).subscribe({
+            next: (data) => {
+                const dialogRef = this.dialog.open(EditTodoDialogComponent, {
+                    data,
+                    height: "300px",
+                });
+                dialogRef.afterClosed().subscribe(() => {
+                    this.getTodos();
+                });
+            },
+        });
     }
 }
